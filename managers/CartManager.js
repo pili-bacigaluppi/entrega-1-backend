@@ -10,7 +10,7 @@ class CartManager {
     }   
     async #readFile(){
         try{
-            const data = await fs.promises.readFile(this.filePath, "utf-8");
+            const data = await fs.readFile(this.filePath, "utf-8");
             return JSON.parse(data)
         } catch (error){
             if (error.code === "ENOENT") return [];
@@ -21,7 +21,7 @@ class CartManager {
         // HAY QUE HACER LA VALIDACION DEL ID
         try {
             const carts = await this.#readFile();
-            const cart = carts.find((c) => c.id === id || null)
+            const cart = carts.find((c) => c.id === id) || null;
             return cart
         } catch (error) {
             console.error("Error al conseguir el carrito: ", error)
@@ -42,7 +42,7 @@ class CartManager {
             const carts = await this.#readFile();
             const newCart = {
                 id: crypto.randomUUID(),
-                products
+                products: products || []
             };
             carts.push(newCart);
             await this.#writeFile(carts)
@@ -51,7 +51,7 @@ class CartManager {
             console.error("Error al crear el carrito: ", error)
         }
     }
-    async addProdToCart({product, quantity}) {
+    /*async addProdToCart({product, quantity}) {
         try {
             if (!product || !quantity) {
                 throw new Error("No se ha podido agregar el producto.");
@@ -72,5 +72,28 @@ class CartManager {
         } catch (error) {
             console.error("Error al agregar el producto al carrito: ", error);
         }
+    }*/
+    async addProdToCart(cartId, productId, quantity) {
+        try {
+            if (!cartId || !productId || !quantity) {
+                throw new Error("Faltan datos para agregar el producto al carrito.");
+            }
+            const carts = await this.#readFile();
+            const cart = carts.find(c => c.id === cartId);
+            if (!cart) {
+                throw new Error("Carrito no encontrado.");
+            }
+            const prodIndex = cart.products.findIndex(p => p.product === productId);
+            if (prodIndex !== -1) {
+                cart.products[prodIndex].quantity += quantity;
+            } else {
+                cart.products.push({ product: productId, quantity });
+            }
+            await this.#writeFile(carts);
+            return cart;
+        } catch (error) {
+            console.error("Error al agregar producto al carrito:", error.message);
+        }
     }
 }
+module.exports = CartManager

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "2a84a5ef-35db-409c-8c51-8e49a957c641",
+    "title": "Inception",
+    "description": "Un ladrón que roba secretos a través de sueños se enfrenta a su misión más peligrosa.",
+    "code": "MOV1001",
+    "price": 9.99,
+    "status": "activo",
+    "stock": 50,
+    "category": "Ciencia ficción",
+    "thumbnails": [
+      "https://m.media-amazon.com/images/M/MV5BMjExMjkwNTQ0Nl5BMl5BanBnXkFtZTcwNTY0OTk1Mw@@._V1_QL75_UX149_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMTMxNDExNzM4MV5BMl5BanBnXkFtZTcwNDY0OTk1Mw@@._V1_QL75_UX328_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BNjMxNjI1Mjc1OV5BMl5BanBnXkFtZTcwMDY0OTk1Mw@@._V1_QL75_UX328_.jpg"
+    ]
+  },
+  {
+    "id": "bb1bac7a-c846-44f5-b1da-9159d0c32a84",
+    "title": "Orgullo y Prejuicio",
+    "description": "Cuando la animada Elizabeth Bennet se encuentra con el soltero, rico y orgulloso Sr. Darcy, las chispas del amor florecerán, pero ambos deberán superar su propio orgullo y prejuicio.",
+    "code": "MOV1002",
+    "price": 10.99,
+    "status": "activo",
+    "stock": 40,
+    "category": "Romance",
+    "thumbnails": [
+      "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_FMjpg_UX1000_.jpg,",
+      "https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/01/16/21/2420938.jpg?width=1200",
+      "https://m.media-amazon.com/images/M/MV5BZTY2OGM3NDgtZTQwMi00MmJiLTg3NGMtZDc0ZGIwODYzZWEyXkEyXkFqcGc@._V1_.jpg"
+    ]
+  },
+  {
+    "id": "a6136455-0840-455a-9b9d-07994c94c155",
+    "title": "Her",
+    "description": "Un hombre solitario se enamora de una inteligencia artificial.",
+    "code": "MOV1005",
+    "price": 8.99,
+    "status": "activo",
+    "stock": 25,
+    "category": "Romance",
+    "thumbnails": [
+      "https://m.media-amazon.com/images/M/MV5BMjA1Nzk0OTM2OF5BMl5BanBnXkFtZTgwNjU2NjEwMDE@._V1_.jpg",
+      "https://www.laia.ar/wp-content/uploads/2024/02/20-Her-2.jpg",
+      "https://assets.mubicdn.net/images/film/108625/image-w1280.jpg?1745491670"
+    ]
+  }
+]

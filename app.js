@@ -15,6 +15,11 @@ const cartDao = new CartManager(filePathC);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//FUNCION INICIADORA
+app.get("/", (req, res) => {
+    res.send("Servidor funcionando correctamente 🚀");
+});
+
 //FUNCIONES PARA PRODUCTOS
 app.get("/api/products/", async (req, res) => {
     console.log("GET / fue llamado");
@@ -61,8 +66,9 @@ app.post("/api/carts/", async (req, res) => {
 
 app.post("/api/carts/:cid/product/:pid", async (req, res) => {
     console.log("POST / fue llamado (prod -> cart)");
-    const prodToCart = await cartDao.addProdToCart(req.body);
-    res.status(201).json(prodToCart);
+    const { quantity } = req.body;
+    const cartUpdated = await cartDao.addProdToCart(req.params.cid, req.params.pid, quantity);
+    res.status(201).json(cartUpdated);
 });
 
 app.listen(port, () => {

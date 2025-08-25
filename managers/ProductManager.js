@@ -58,7 +58,7 @@ class ProductManager {
         // HAY QUE HACER LA VALIDACION DEL ID
         try {
             const products = await this.#readFile();
-            const product = products.find((p) => p.id === id);
+            const product = products.find((p) => p.id == id);
             return product || null;
         } catch (error) {
             console.error("Error al conseguir el producto específico: ", error)

@@ -1,0 +1,11 @@
+[
+    {
+        "id": "cart-uuid-1234",
+        "products": [
+        {
+            "product": "1",
+            "quantity": 3
+        }
+        ]
+    }
+]
