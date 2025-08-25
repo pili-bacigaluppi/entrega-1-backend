@@ -7,7 +7,7 @@ const filePath = path.join(__dirname, "data", "carts.json");
 class CartManager {
     constructor(filePath){
         this.filePath = filePath
-    }
+    }   
     async #readFile(){
         try{
             const data = await fs.promises.readFile(this.filePath, "utf-8");
@@ -21,7 +21,7 @@ class CartManager {
         // HAY QUE HACER LA VALIDACION DEL ID
         try {
             const carts = await this.#readFile();
-            const cart = cart.find((c) => c.id === id || null)
+            const cart = carts.find((c) => c.id === id || null)
             return cart
         } catch (error) {
             console.error("Error al conseguir el carrito: ", error)

@@ -2,15 +2,13 @@ const fs = require("fs/promises");
 const crypto = require("crypto");
 const path = require("path");
 
-const filePath = path.join(__dirname, "data", "products.json");
-
 class ProductManager {
     constructor(filePath){
         this.filePath = filePath
     }
     async #readFile(){
         try{
-            const data = await fs.promises.readFile(this.filePath, "utf-8");
+            const data = await fs.readFile(this.filePath, "utf-8");
             return JSON.parse(data)
         } catch (error){
             if (error.code === "ENOENT") return [];
@@ -24,7 +22,7 @@ class ProductManager {
             console.error("Error al escribir el archivo: ", error)
         }
     }
-    async addProduct({title, description, code, price, status = activo, stock = 0 , category, thumbnails}){
+    async addProduct({title, description, code, price, status = "activo", stock = 0 , category, thumbnails}){
         try {
             if(!title || !code || !price || !category || stock < 0){
                 throw new Error("Los campos de título, codigo, precio y categoría son obligatorios y el stock debe ser un número válido.")
@@ -60,13 +58,13 @@ class ProductManager {
         // HAY QUE HACER LA VALIDACION DEL ID
         try {
             const products = await this.#readFile();
-            const product = products.find((p) => p.id === id || null)
-            return product
+            const product = products.find((p) => p.id === id);
+            return product || null;
         } catch (error) {
             console.error("Error al conseguir el producto específico: ", error)
         }
     }
-    async deleteProductByID(){
+    async deleteProductByID(id){
         try {
             const products = await this.#readFile();
             const index = products.findIndex((product) => product.id === id);
@@ -99,16 +97,4 @@ class ProductManager {
         }
     }
 }
-
-//PARA CREAR UNA NUEVA INSTANCIA
-//const filePath = path.join(__dirname, "data", "products.json");
-const managerProduct = new ProductManager(filePath);
-
-async function main(){
-    console.log( await managerProduct.addProduct(/*{ACA VAN TODOS LOS PARÁMETROS}*/));
-    console.log( await managerProduct.getAllProducts());
-    console.log( await managerProduct.getProductByID(/*{ACA VA EL ID QUE QUEREMOS BUSCAR}*/))
-    console.log( await managerProduct.updateProduct(/*{ACA VA LA DATA A ACTUALIZAR}, ACA VA EL ID DEL PROD A ACTUALIZAR)*/))
-    return
-}
-//main()  --> PARA QUE LO HAGA
+module.exports = ProductManager;
