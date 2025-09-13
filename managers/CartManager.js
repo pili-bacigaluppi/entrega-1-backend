@@ -51,28 +51,6 @@ class CartManager {
             console.error("Error al crear el carrito: ", error)
         }
     }
-    /*async addProdToCart({product, quantity}) {
-        try {
-            if (!product || !quantity) {
-                throw new Error("No se ha podido agregar el producto.");
-            }
-            const cart = await this.getCartByID(product);
-            const existeProdIndex = cart.findIndex((p) => p.product === product);
-            if (existeProdIndex !== -1) {
-                cart[existeProdIndex].quantity += quantity;
-            } else {
-                const newProdToAdd = { 
-                    product, 
-                    quantity 
-                };
-                cart.push(newProdToAdd);
-            }
-            await this.#writeFile(cart);
-            return cart;
-        } catch (error) {
-            console.error("Error al agregar el producto al carrito: ", error);
-        }
-    }*/
     async addProdToCart(cartId, productId, quantity) {
         try {
             if (!cartId || !productId || !quantity) {

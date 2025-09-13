@@ -1,11 +1,22 @@
-<div>
-    {{> header}} 
-    <div>
-        <ul>
-            {{#each products}}
-            <li>{{title}} - ${{price}}</li>
-            {{/each}}
-        </ul>
+<section class="home">
+    <h2 class="subtitle">Productos disponibles</h2>
+    <div class="products-list">
+        {{#each products}}
+        <div class="product-card">
+            <div class="product-img-box">
+            {{#if this.thumbnails.[0]}}
+                <img src="{{this.thumbnails.[0]}}" alt="{{this.title}}" class="product-img">
+            {{else}}
+                <img src="" alt="Sin imagen" class="product-img">
+            {{/if}}
+            </div>
+            <div class="product-info">
+            <h3>{{this.title}}</h3>
+            <p>{{this.description}}</p>
+            <p class="price">$ {{this.price}}</p>
+            <p><strong>Stock:</strong> {{this.stock}}</p>
+            </div>
+        </div>
+        {{/each}}
     </div>
-    {{>footer}}
-</div>
+</section>

@@ -2,7 +2,7 @@ const { paths } = require("../config/config");
 
 const ViewsManager = require("../../managers/ViewsManager");
 
-const viewsDao = new ViewsManager(paths.views);
+const viewsDao = new ViewsManager(paths.products);
 
 //FUNC PARA VIEWS
 async function showProdController (req,res) {

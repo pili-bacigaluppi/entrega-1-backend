@@ -1,11 +1,24 @@
 [
-    {
-        "id": "cart-uuid-1234",
-        "products": [
-        {
-            "product": "1",
-            "quantity": 3
-        }
-        ]
-    }
+  {
+    "id": "cart-uuid-1234",
+    "products": [
+      {
+        "product": "1",
+        "quantity": 5
+      }
+    ]
+  },
+  {
+    "id": "afc18071-b117-41d2-a124-0719a640ea93",
+    "products": [
+      {
+        "product": "1",
+        "quantity": 6
+      },
+      {
+        "product": "a6136455-0840-455a-9b9d-07994c94c155",
+        "quantity": 4
+      }
+    ]
+  }
 ]

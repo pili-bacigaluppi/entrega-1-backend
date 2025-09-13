@@ -18,7 +18,7 @@ async function getCartByIDController (req,res) {
 async function addCartController (req,res) {
     try {
         console.log("POST / fue llamado (cart)");
-        const newCart = await cartDao.addCart(req.body, req.params.pid);
+        const newCart = await cartDao.addCart(req.body);
         res.status(201).json(newCart);
     } catch (error) {
         res.status(500).json({ message: error.message})
