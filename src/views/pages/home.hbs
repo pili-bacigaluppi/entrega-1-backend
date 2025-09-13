@@ -1,0 +1,11 @@
+<div>
+    {{> header}} 
+    <div>
+        <ul>
+            {{#each products}}
+            <li>{{title}} - ${{price}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    {{>footer}}
+</div>
