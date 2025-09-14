@@ -7,6 +7,7 @@ module.exports = {
         views: path.join(__dirname, "../views"),
         public: path.join(__dirname, "../../public"),
         carts: path.join(__dirname, "../../data/carts.json"),
-        products: path.join(__dirname, "../../data/products.json")
+        products: path.join(__dirname, "../../data/products.json"),
+        uploads: path.join(__dirname, "../../uploads")
     }
 }
