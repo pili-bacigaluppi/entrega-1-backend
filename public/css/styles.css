@@ -114,3 +114,26 @@ body {
     color: #e83e8c;
     margin-top: 0.5rem;
 }
+.btnEliminar{
+    background-color: rgba(168, 3, 3, 0.897);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+.actionsDel{
+    padding: 80px 80px;
+}
+.actionsAdd{
+    padding-bottom: 20px;
+}
+.btnNuevoProducto{
+    background-color: rgba(173, 2, 102, 0.897);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: none;
+    font-size: .9rem;
+    cursor: pointer;
+}

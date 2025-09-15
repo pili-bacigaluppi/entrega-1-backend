@@ -14,7 +14,16 @@ async function showProdController (req,res) {
         res.status(500).json({ message: error.message})
     }
 }
+async function showRealTimeController(req, res) {
+    try {
+        const products = await viewsDao.getAllProducts();
+        return res.render("pages/realtimeProducts", {products});
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
 
 module.exports = {
-    showProdController
+    showProdController,
+    showRealTimeController
 }

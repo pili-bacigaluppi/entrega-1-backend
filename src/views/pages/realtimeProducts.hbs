@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Productos en Tiempo Real</h1>
+    <div class="actionsAdd">
+        <button id="btnNuevoProducto" class="btnNuevoProducto">➕ Crear nuevo producto</button>
+    </div>
+    <div id="listaProductos" class="products-container">
+        {{#each products}}
+        <div class="product-card" id="prod-{{this.id}}">
+            <div class="product-img-box">
+                {{#if this.thumbnails.[0]}}
+                    <img src="{{this.thumbnails.[0]}}" alt="{{this.title}}" class="product-img">
+                {{else}}
+                    <img src="" alt="Sin imagen" class="product-img">
+                {{/if}}
+            </div>
+            <div class="product-info">
+                <h3>{{this.title}}</h3>
+                <p>{{this.description}}</p>
+                <p class="price">$ {{this.price}}</p>
+                <p><strong>Stock:</strong> {{this.stock}}</p>
+            </div>
+            <div class="actionsDel">
+                <button class="btnEliminar" data-id="{{this.id}}">Eliminar</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
