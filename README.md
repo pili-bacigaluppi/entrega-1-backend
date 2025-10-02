@@ -1,7 +1,3 @@
-CODIGO: mongodb+srv://bacigaluppipili_db_user:Ia10Jh6usgG2NYqU@cluster-entrega1.yoinnhu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-entrega1
-
-CODIGO: mongodb+srv://bacigaluppipili_db_user:Ia10Jh6usgG2NYqU@cluster-entrega1.yoinnhu.mongodb.net/<DB_NAME>?retryWrites=true&w=majority&appName=Cluster-entrega1
-
 # API REST para la Gestión de Libros 
 
 ### Estructura de Archivos
