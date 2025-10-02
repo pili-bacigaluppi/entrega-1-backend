@@ -1,5 +1,5 @@
 [
-  {
+    {
     "id": "664f3c8a8d1d1a0f9c7a5b1a",
     "title": "Yo antes de ti",
     "description": "La vida de Louisa Clark, una chica alegre y alocada, que va empalmando un trabajo con otro para ayudar a su familia a subsistir, cambia por completo cuando comienza a trabajar como cuidadora de un joven millonario, quien quedó paralítico tras un accidente. Poco a poco, se va estableciendo entre ellos una conexión cada vez más íntima.",
@@ -9,12 +9,12 @@
     "stock": 30,
     "category": "Drama",
     "thumbnails": [
-      "https://m.media-amazon.com/images/S/pv-target-images/20d5708d15616c1cacb57351d47118756a5abd3037583b62b8ebe44525ae54d9.jpg",
-      "https://confidencial.digital/wp-content/uploads/2022/11/emilia-clarke-yo-antes-de-ti.jpg",
-      "https://www.sandrasomera.com/wp-content/uploads/2021/11/Escena-mallas-1024x464.jpg"
+        "https://m.media-amazon.com/images/S/pv-target-images/20d5708d15616c1cacb57351d47118756a5abd3037583b62b8ebe44525ae54d9.jpg",
+        "https://confidencial.digital/wp-content/uploads/2022/11/emilia-clarke-yo-antes-de-ti.jpg",
+        "https://www.sandrasomera.com/wp-content/uploads/2021/11/Escena-mallas-1024x464.jpg"
     ]
-  },
-  {
+    },
+    {
     "id": "664f3c8a8d1d1a0f9c7a5b1b",
     "title": "La La Land",
     "description": "Una aspirante a actriz y un músico luchan por sus sueños en Los Ángeles.",
@@ -24,12 +24,12 @@
     "stock": 45,
     "category": "Musical",
     "thumbnails": [
-      "https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png",
-      "https://i.blogs.es/495160/277365.jpg-r_1920_1080-f_jpg-q_x-xxyxx/1366_2000.jpg",
-      "https://c.files.bbci.co.uk/9238/production/_93323473_lalaland3ap.jpg"
+        "https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png",
+        "https://i.blogs.es/495160/277365.jpg-r_1920_1080-f_jpg-q_x-xxyxx/1366_2000.jpg",
+        "https://c.files.bbci.co.uk/9238/production/_93323473_lalaland3ap.jpg"
     ]
-  },
-  {
+    },
+    {
     "id": "664f3c8a8d1d1a0f9c7a5b1c",
     "title": "The Matrix",
     "description": "Un hacker descubre que el mundo es una simulación controlada por máquinas.",
@@ -39,12 +39,12 @@
     "stock": 55,
     "category": "Acción",
     "thumbnails": [
-      "https://upload.wikimedia.org/wikipedia/en/d/db/The_Matrix.png",
-      "https://i.blogs.es/3bbc27/matrix1/1366_2000.jpg",
-      "https://cdn.origo.hu/2023/12/WeCETQbN0_2e1ol_9tlLPyogTj9Z8YlEghjeE9Ztzcw/fill/1347/758/no/1/aHR0cHM6Ly9jbXNjZG4uYXBwLmNvbnRlbnQucHJpdmF0ZS9jb250ZW50LzZhYWM4NTkxMzhmMjQ3OTZiNjRlYTU5NTYyODhlZmU1.webp"
+        "https://upload.wikimedia.org/wikipedia/en/d/db/The_Matrix.png",
+        "https://i.blogs.es/3bbc27/matrix1/1366_2000.jpg",
+        "https://cdn.origo.hu/2023/12/WeCETQbN0_2e1ol_9tlLPyogTj9Z8YlEghjeE9Ztzcw/fill/1347/758/no/1/aHR0cHM6Ly9jbXNjZG4uYXBwLmNvbnRlbnQucHJpdmF0ZS9jb250ZW50LzZhYWM4NTkxMzhmMjQ3OTZiNjRlYTU5NTYyODhlZmU1.webp"
     ]
-  },
-  {
+    },
+    {
     "id": "664f3c8a8d1d1a0f9c7a5b1d",
     "title": "Moonrise Kingdom",
     "description": "Dos niños enamorados huyen de casa, causando una búsqueda frenética en su comunidad.",
@@ -54,12 +54,12 @@
     "stock": 20,
     "category": "Drama",
     "thumbnails": [
-      "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9005688_p_v10_ac.jpg",
-      "https://filmquarterly.org/wp-content/uploads/2014/01/moonrise_featured.jpg",
-      "https://m.media-amazon.com/images/S/pv-target-images/b54230798b5bf9db5f08b0a6b61c242325441dd1169300f8eacb7b658d75f2b8._SX1080_FMjpg_.jpg"
+        "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9005688_p_v10_ac.jpg",
+        "https://filmquarterly.org/wp-content/uploads/2014/01/moonrise_featured.jpg",
+        "https://m.media-amazon.com/images/S/pv-target-images/b54230798b5bf9db5f08b0a6b61c242325441dd1169300f8eacb7b658d75f2b8._SX1080_FMjpg_.jpg"
     ]
-  },
-  {
+    },
+    {
     "id": "664f3c8a8d1d1a0f9c7a5b1e",
     "title": "Whiplash",
     "description": "Un joven baterista se enfrenta a un implacable profesor en un conservatorio de música.",
@@ -69,7 +69,7 @@
     "stock": 28,
     "category": "Drama",
     "thumbnails": [
-      "https://play-lh.googleusercontent.com/MiAS8Jdv8jtrYRMlMM8CLofcdGYbl9AXKLTjDaRYWemWC9FvpmNB9RbDr3Ykw_kd5GRLXw"
+        "https://play-lh.googleusercontent.com/MiAS8Jdv8jtrYRMlMM8CLofcdGYbl9AXKLTjDaRYWemWC9FvpmNB9RbDr3Ykw_kd5GRLXw"
     ]
-  }
+    }
 ]

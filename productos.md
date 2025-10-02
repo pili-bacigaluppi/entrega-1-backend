@@ -14,7 +14,6 @@
         ]
     },
     {
-        "id": 2,
         "title": "Orgullo y Prejuicio",
         "description": "Cuando la animada Elizabeth Bennet se encuentra con el soltero, rico y orgulloso Sr. Darcy, las chispas del amor florecerán, pero ambos deberán superar su propio orgullo y prejuicio.",
         "code": "MOV1002",

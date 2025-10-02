@@ -1,5 +1,5 @@
-const fs = require("fs/promises");
-const crypto = require("crypto");
+const mongoose = require("mongoose");
+const Cart = require("../src/models/cart.model");
 const path = require("path");
 
 const filePath = path.join(__dirname, "data", "carts.json");
@@ -7,45 +7,26 @@ const filePath = path.join(__dirname, "data", "carts.json");
 class CartManager {
     constructor(filePath){
         this.filePath = filePath
-    }   
-    async #readFile(){
-        try{
-            const data = await fs.readFile(this.filePath, "utf-8");
-            return JSON.parse(data)
-        } catch (error){
-            if (error.code === "ENOENT") return [];
-            throw error;
-        }
     }
     async getCartByID(id){
         // HAY QUE HACER LA VALIDACION DEL ID
         try {
-            const carts = await this.#readFile();
-            const cart = carts.find((c) => c.id === id) || null;
-            return cart
+            if (!mongoose.Types.ObjectId.isValid(id)) {
+                throw new Error("ID no válido");
+            }
+            const cart = await Cart.findById(id).populate("products.product");
+            return cart || null;
         } catch (error) {
             console.error("Error al conseguir el carrito: ", error)
         }
     }
-    async #writeFile(cart){
-            try {
-                await fs.writeFile(this.filePath, JSON.stringify(cart, null, 2));
-            } catch (error) {
-                console.error("Error al escribir el archivo: ", error)
-            }
-    }
     async addCart({products}){
         try {
-            if(!products){
-                throw new Error("Debes tener productos seleccionados para crear un nuevo carrito.")
+            if (!products || !Array.isArray(products)) {
+                throw new Error("Debes enviar un array de productos para crear un nuevo carrito.");
             }
-            const carts = await this.#readFile();
-            const newCart = {
-                id: crypto.randomUUID(),
-                products: products || []
-            };
-            carts.push(newCart);
-            await this.#writeFile(carts)
+            const newCart = new Cart({ products });
+            await newCart.save();
             return newCart;
         } catch (error) {
             console.error("Error al crear el carrito: ", error)
@@ -56,18 +37,20 @@ class CartManager {
             if (!cartId || !productId || !quantity) {
                 throw new Error("Faltan datos para agregar el producto al carrito.");
             }
-            const carts = await this.#readFile();
-            const cart = carts.find(c => c.id === cartId);
+            if (!mongoose.Types.ObjectId.isValid(cartId)) {
+                throw new Error("ID de carrito no válido");
+            }
+            const cart = await Cart.findById(cartId);
             if (!cart) {
                 throw new Error("Carrito no encontrado.");
             }
-            const prodIndex = cart.products.findIndex(p => p.product === productId);
+            const prodIndex = cart.products.findIndex(p => p.product.toString() === productId);
             if (prodIndex !== -1) {
                 cart.products[prodIndex].quantity += quantity;
             } else {
                 cart.products.push({ product: productId, quantity });
             }
-            await this.#writeFile(carts);
+            await cart.save();
             return cart;
         } catch (error) {
             console.error("Error al agregar producto al carrito:", error.message);

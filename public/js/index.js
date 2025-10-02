@@ -5,7 +5,7 @@ const btnNuevo = document.getElementById("btnNuevoProducto");
 function agregarCard(producto) {
     const div = document.createElement("div");
     div.className = "product-card";
-    div.id = `prod-${producto.id}`;
+    div.id = `prod-${producto._id}`;
     div.innerHTML = `
             <div class="product-img-box">
                 ${producto.thumbnail ? `<img src="${producto.thumbnail}" alt="${producto.title}">` : ""}
@@ -17,7 +17,7 @@ function agregarCard(producto) {
                 <p><strong>Stock:</strong> ${producto.stock}</p>
             </div>
             <div class="actionsDel">
-                <button class="btnEliminar" data-id="${producto.id}">Eliminar</button>
+                <button class="btnEliminar" data-id="${producto._id}">Eliminar</button>
             </div>
     `;
     lista.appendChild(div);
@@ -27,8 +27,8 @@ socket.on("productoNuevo", (producto) => {
     agregarCard(producto);
 });
 
-socket.on("productoEliminado", (id) => {
-    const item = document.getElementById(`prod-${id}`);
+socket.on("productoEliminado", (_id) => {
+    const item = document.getElementById(`prod-${_id}`);
     if (item) item.remove();
 });
 

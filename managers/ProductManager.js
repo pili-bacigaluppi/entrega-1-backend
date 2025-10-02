@@ -1,46 +1,20 @@
-const fs = require("fs/promises");
-const crypto = require("crypto");
 const path = require("path");
+const mongoose = require("mongoose");
+const Book = require("../src/models/book.model");
 
 class ProductManager {
     constructor(filePath){
         this.filePath = filePath
     }
-    async #readFile(){
-        try{
-            const data = await fs.readFile(this.filePath, "utf-8");
-            return JSON.parse(data)
-        } catch (error){
-            if (error.code === "ENOENT") return [];
-            throw error;
-        }
-    }
-    async #writeFile(products){
-        try {
-            await fs.writeFile(this.filePath, JSON.stringify(products, null, 2));
-        } catch (error) {
-            console.error("Error al escribir el archivo: ", error)
-        }
-    }
     async addProduct({title, description, code, price, status = "activo", stock = 0 , category, thumbnails}){
+    //async addProduct(data){
         try {
             if(!title || !code || !price || !category || stock < 0){
                 throw new Error("Los campos de título, codigo, precio y categoría son obligatorios y el stock debe ser un número válido.")
             }
-            const products = await this.#readFile();
-            const newProduct = {
-                id: crypto.randomUUID(),
-                title,
-                description,
-                code,
-                price,
-                status,
-                stock,
-                category,
-                thumbnails
-            };
-            products.push(newProduct);
-            await this.#writeFile(products)
+            const newProduct = new Book({ title, description, code, price, status, stock, category, thumbnails });
+            //const newProduct = new Product(data);
+            await newProduct.save();
             return newProduct;
         } catch (error) {
             console.error("Error al crear el producto: ", error)
@@ -48,17 +22,15 @@ class ProductManager {
     }
     async getAllProducts(){
         try {
-            const data = await this.#readFile();
-            return data;
+            const books = await Book.find({}, "title description price stock thumbnails");
+            return books;
         } catch (error) {
             console.error("Error al conseguir todos los productos: ", error);
         }
     }
     async getProductByID(id){
-        // HAY QUE HACER LA VALIDACION DEL ID
-        try {
-            const products = await this.#readFile();
-            const product = products.find((p) => p.id === id);
+        try {   
+            const product =  await Book.findById(id);
             return product || null;
         } catch (error) {
             console.error("Error al conseguir el producto específico: ", error)
@@ -66,32 +38,19 @@ class ProductManager {
     }
     async deleteProductByID(id){
         try {
-            const products = await this.#readFile();
-            const index = products.findIndex((product) => product.id === id);
-            if (index === -1) {
-                throw new Error("Producto no encontrado");
-            }
-            products.splice(index, 1);
-            await this.#writeFile(products);
-            return { message: "Producto eliminado con éxito" };
+            const bookDelete = await Book.findByIdAndDelete(id);
+            return bookDelete
         } catch (error) {
             console.error("Error al eliminar el producto: ", error);
         }
     }
     async updateProduct(dataActualizada, id){
         try {
-            const products = await this.#readFile();
-            const productIndex = products.findIndex((product) => product.id === id);
-            if (productIndex === -1) {
-                throw new Error("Producto no encontrado");
-            }
-            const updatedProduct = {
-                ...products[productIndex],
-                ...dataActualizada, // VER ESTO
-            };
-            products[productIndex] = updatedProduct; //VER ESTO
-            await this.#writeFile(products);
-            return updatedProduct;
+            if (!mongoose.Types.ObjectId.isValid(id)) {
+            throw new Error("ID no válido");
+        }
+        const updateBook = await Book.findByIdAndUpdate(id, dataActualizada, { new: true });
+        return updateBook
         } catch (error) {
             console.error("Error al actualizar el producto: ", error);
         }
